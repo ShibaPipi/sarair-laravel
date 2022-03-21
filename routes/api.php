@@ -20,7 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('keeper')->group(function () {
-    Route::prefix('healths')->controller(HealthController::class)->group(function () {
-        Route::get('', 'index');
-    });
+    Route::resource('healths', HealthController::class);
 });

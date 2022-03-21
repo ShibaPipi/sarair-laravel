@@ -12,4 +12,8 @@ class HealthController extends BaseController
     {
         return new HealthCollection(KeeperHealth::where('name', $request?->name)->get());
     }
+
+    public function store(Request $request) {
+        return KeeperHealth::create($request->toArray());
+    }
 }
