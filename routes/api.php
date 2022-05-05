@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\coriander\IndexController;
 use App\Http\Controllers\keeper\HealthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('keeper')->group(function () {
     Route::resource('healths', HealthController::class);
+});
+
+Route::prefix('coriander')->group(function () {
+    Route::get('data/{userId}', [IndexController::class, 'index']);
 });
